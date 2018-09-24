@@ -1,0 +1,35 @@
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Course</th>
+    </tr>
+    <tr *ngFor="let student of student_list">
+      <th scope="row">{{student.name}}</th>
+      <td>{{student.email}} </td>
+      <td>{{student.course_id}}</td>
+
+      <td>
+        <a class="btn" (click)="showForEdit(company)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(company.CompanyID)">
+          <i class="fa fa-trash-o"></i>
+        </a>
+  
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <div>
+    <button (click)="create()">Register new student</button>
+  </div>
+  <div>
+    <button>Edit student details</button>
+  </div>
+  <div>
+    <button>Delete a student record</button>
+  </div>
+</div>

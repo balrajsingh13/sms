@@ -1,0 +1,44 @@
+<div class="content_area">
+  <div class="heading">
+    <h1>Register</h1>
+  </div>
+  <div class="form">
+    <h2>Help Yourself!</h2>
+    <form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()" id="contact">
+      <div class="lhs">
+        <div class="row-left">
+          <input class="textbox" type="text" name="name" placeholder="Name" formControlName="name"/>
+          <span class="error" *ngIf="RegistrationForm.controls['name'].touched && !RegistrationForm.controls['name'].valid && RegistrationForm.controls['name'].dirty">Invalid first Name </span>
+        </div>
+
+        <div class="row-left">
+          <input class="textbox" type="text" name="email" placeholder="Email" formControlName="email">
+          <span class="error" *ngIf="RegistrationForm.controls['email'].touched && !RegistrationForm.controls['email'].valid && RegistrationForm.controls['email'].dirty">Invalid conact</span>
+        </div>
+        <div class="row-left">
+          <input class="textbox" [type]="type" name="password" placeholder="Password" formControlName="password" />
+          <i (mouseup)="hide()" (mousedown) ="show()" class="fas fa-eye"></i>
+          <span class="error" *ngIf="RegistrationForm.controls['password'].touched && RegistrationForm.controls.password.invalid && RegistrationForm.controls['password'].dirty">Invalid Password</span>
+        </div>
+        <div class="row-left">
+          <input type="radio" name="role" formControlName="role" value="0"> Student<br>
+          <input type="radio" name="role" formControlName="role" value="1"> Admin<br>
+          <span class="error" *ngIf="RegistrationForm.controls['role'].touched">Please Select any one</span>
+        </div>
+      </div>
+      <div class="row-left" formControlName="row-left">
+        <select name="course">
+          <option value="1">Full-stack</option>
+          <option value="2">Bigdata</option>
+          <option value="3">Machine-learning</option>
+          <option value="4">Java</option>
+        </select>
+        <span class="error" *ngIf="RegistrationForm.controls['course'].touched">Please Select any one</span>
+      </div>
+      <div>
+        <button type="submit" [disabled]="!RegistrationForm.valid" id="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>
